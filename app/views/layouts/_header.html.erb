@@ -4,20 +4,35 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
       </button>
-      <%= link_to "FELS", root_path, class: "navbar-brand" %>
+      <%= link_to t(".home"), root_path, class: "navbar-brand" %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a>Words list</a>
-        </li>
-        <li>
-          <a>Categories</a>
-        </li>
-        <li>
-          <a>Profile</a>
-        </li>
+        <% if user_signed_in? %>
+          <li>
+            <a><%= t ".words_list" %></a>
+          </li>
+          <li>
+            <a><%= t ".categories" %></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t ".account" %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t(".profile"), current_user %></li>
+              <li><%= link_to t(".settings"), edit_user_registration_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t(".log_out"), destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t(".log_in"), new_user_session_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
