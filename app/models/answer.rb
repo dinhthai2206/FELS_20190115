@@ -1,6 +1,7 @@
 class Answer < ApplicationRecord
-  belongs_to :word
+  belongs_to :word, inverse_of: :answers
 
   validates :content, presence: true
-  validates :word_id, presence: true
+  validates :correct, presence: true
+
 end

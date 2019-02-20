@@ -10,6 +10,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <% if current_user.has_role? :admin %>
+            <li class="nav-item">
+              <%= link_to t(".dashboard"), rails_admin_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li>
             <a><%= t ".words_list" %></a>
           </li>
