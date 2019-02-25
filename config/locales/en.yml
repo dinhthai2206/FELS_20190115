@@ -9,3 +9,7 @@ en:
       settings: Settings
       log_out: Log out
       log_in: Log in
+
+  static_pages:
+    home:
+      home: Home
