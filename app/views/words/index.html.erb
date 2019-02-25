@@ -1,0 +1,25 @@
+<% provide :title, t(".word_list") %>
+<h1>Word list</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t ".word" %></th>
+      <th scope="col"><%= t ".meaning" %></th>
+      <th scope="col"><%= t ".category" %></th>
+      <th scope="col"><%= t ".status" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.content %></td>
+        <td><%= word.right_answer.content %></td>
+        <td><%= word.category.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%== pagy_bootstrap_nav @pagy %>

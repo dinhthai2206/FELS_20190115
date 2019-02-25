@@ -4,4 +4,5 @@ class Answer < ApplicationRecord
   validates :content, presence: true
   validates :correct, presence: true
 
+  enum correct: {wrong: 0, right: 1}
 end
