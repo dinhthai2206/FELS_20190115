@@ -12,7 +12,7 @@ class Word < ApplicationRecord
     allow_destroy: true
 
   scope :all_words, -> do
-    includes(:category, :right_answer)
+    includes :category, :right_answer
   end
 
 end

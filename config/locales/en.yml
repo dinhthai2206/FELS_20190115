@@ -21,3 +21,14 @@ en:
       meaning: Meaning
       category: Category
       status: Status
+
+  categories:
+    index:
+      categories: Categories
+      category: Category
+      words: Number of words
+
+    show:
+      word: Word
+      category: Category
+      status: Status

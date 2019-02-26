@@ -1,0 +1,24 @@
+<% provide :title, @category.title %>
+
+<h1><%= @category.title %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t ".word" %></th>
+      <th scope="col"><%= t ".meaning" %></th>
+      <th scope="col"><%= t ".status" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.content %></td>
+        <td><%= word.right_answer.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%== pagy_bootstrap_nav @pagy %>
