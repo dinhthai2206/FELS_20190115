@@ -13,3 +13,11 @@ en:
   static_pages:
     home:
       home: Home
+
+  words:
+    index:
+      word_list: WORD LIST
+      word: Word
+      meaning: Meaning
+      category: Category
+      status: Status

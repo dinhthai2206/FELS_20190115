@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
-  get "users/show"
   root "static_pages#home"
   devise_for :users, controllers: {registrations: "registrations"}, skip: [:sessions]
   as :user do
@@ -11,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
+  resources :words, only: :index
 end
