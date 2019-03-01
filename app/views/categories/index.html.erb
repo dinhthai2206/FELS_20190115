@@ -1,0 +1,22 @@
+<% provide :title, t(".categories") %>
+<h1><%= t ".categories" %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t ".category" %></th>
+      <th scope="col"><%= t ".words" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.title, category %></td>
+        <td><%= category.words.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%== pagy_bootstrap_nav @pagy %>
