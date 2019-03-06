@@ -1,0 +1,5 @@
+en:
+  lessons:
+    create:
+      success: Lesson created!
+      failed: This category hasn't had enough words!
