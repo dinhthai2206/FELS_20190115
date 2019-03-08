@@ -46,7 +46,15 @@ en:
       lesson: Lesson
       created_at: Created at
       status: Status
+    index:
+      users: Users
 
   time:
     formats:
       day: "%d %B , %Y"
+
+  users:
+    follow:
+      follow: Follow
+    unfollow:
+      unfollow: Unfollow

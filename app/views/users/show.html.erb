@@ -1,6 +1,16 @@
 <% provide :title, @user.name %>
 
 <h1><%= @user.name %></h1>
+<span id="follow_form">
+  <%= render "follow_form", user: @user %>
+</span>
+<a href="<%= user_followers_path @user %>">
+  <b id="followers"><%= @user.followers.count %></b> <%= t ".followers" %>
+</a>
+<a href="<%= user_following_index_path @user %>">
+  <b id="following"><%= @user.following.count %></b> <%= t ".following" %>
+</a>
+
 <div class="list-group-item">
   <%= render "lessons/form" %>
 </div>
