@@ -6,7 +6,11 @@
       <h1 id="homeHeading">Learning languages</h1>
       <hr>
       <p>Start learning new words</p>
-      <a href="#about" class="btn btn-primary btn-xl page-scroll">Start Lesson</a>
+      <% if user_signed_in? %>
+        <a href="<%= user_path(current_user) %>" class="btn btn-primary btn-xl page-scroll"><%= t ".start" %></a>
+      <% else %>
+        <a href="<%= new_user_session_path %>" class="btn btn-primary btn-xl page-scroll"><%= t ".log_in"%></a>
+      <% end %>
     </div>
   </div>
 </header>

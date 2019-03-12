@@ -1,0 +1,7 @@
+<%= form_for @lesson do |f| %>
+<div class="field">
+  <%= f.label t(".category") %>
+  <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
+  <%= f.submit t(".create"), class: "btn btn-primary" %>
+</div>
+<% end %>

@@ -13,6 +13,8 @@ en:
   static_pages:
     home:
       home: Home
+      start: Start Lesson
+      log_in: Log in
 
   words:
     index:
@@ -32,3 +34,19 @@ en:
       word: Word
       category: Category
       status: Status
+
+  lessons:
+    form:
+      category: Select category
+      create: Create lesson
+
+  users:
+    show:
+      lessons: Lessons (%{count})
+      lesson: Lesson
+      created_at: Created at
+      status: Status
+
+  time:
+    formats:
+      day: "%d %B , %Y"

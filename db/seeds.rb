@@ -11,7 +11,7 @@ User.create!(name: "123", email: "123@gmail.com", password: "123456",
     password: "123456", password_confirmation: "123456")
 end
 
-100.times do
+400.times do
   Word.create!(
     category_id: rand(Category.first.id..Category.last.id),
     content: Faker::Lorem.word,
@@ -21,4 +21,11 @@ end
       {content: Faker::Lorem.word, correct: 0},
       {content: Faker::Lorem.word, correct: 1}
     ])
+end
+
+200.times do
+  Lesson.create!(
+    category_id: rand(Category.first.id..Category.last.id),
+    user_id: rand(User.first.id..User.last.id)
+  )
 end
