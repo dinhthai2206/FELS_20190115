@@ -3,3 +3,9 @@ en:
     create:
       success: Lesson created!
       failed: This category hasn't had enough words!
+
+  followers:
+    followers: Followers
+
+  following:
+    following: Following

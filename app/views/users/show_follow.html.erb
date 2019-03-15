@@ -1,0 +1,10 @@
+<% provide :title, @title %>
+
+<h1 class="title"><%= @title %></h1>
+  <% if @users.present? %>
+    <ul class="row">
+      <%= render @users %>
+    </ul>
+  <% end %>
+  <%== pagy_bootstrap_nav @pagy %>
+<%= link_to t(".back"), user_path(@user) %>

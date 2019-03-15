@@ -11,6 +11,13 @@ User.create!(name: "123", email: "123@gmail.com", password: "123456",
     password: "123456", password_confirmation: "123456")
 end
 
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}
+
 400.times do
   Word.create!(
     category_id: rand(Category.first.id..Category.last.id),

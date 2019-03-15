@@ -9,8 +9,11 @@ Rails.application.routes.draw do
       via: Devise.mappings[:user].sign_out_via
   end
 
-  resources :users, only: :show
+  resources :users, only: [:show, :index] do
+    resources :following, :followers, only: :index
+  end
   resources :words, only: :index
   resources :categories
   resources :lessons
+  resources :relationships, only: [:create, :destroy]
 end
