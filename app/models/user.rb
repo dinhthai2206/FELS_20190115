@@ -13,6 +13,8 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :choices
+  has_many :answers, through: :choices
 
   validates :name, presence: true
 

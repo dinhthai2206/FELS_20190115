@@ -39,13 +39,18 @@ en:
     form:
       category: Select category
       create: Create lesson
-
+    edit:
+      back: Back to profile
+      submit: Submit
+      
   users:
     show:
       lessons: Lessons (%{count})
       lesson: Lesson
       created_at: Created at
       status: Status
+      answer: Answer lesson
+      review: Review
     index:
       users: Users
 

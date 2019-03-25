@@ -1,0 +1,19 @@
+<h1><%= @lesson.category.title %></h1>
+<%= link_to t(".back"), user_path(@lesson.user) %><br/>
+
+<ol>
+  <%= form_with model: @lesson, local: true do |f| %>
+    <%= f.fields_for :choices do |c| %>
+      <li>
+        <h3><%= c.object.word.content %></h3>
+        <%= c.collection_radio_buttons :answer_id, c.object.word.answers, :id, :content do |b| %>
+          <div>
+            <%= b.radio_button %>
+            <%= b.label %>
+          </div>
+        <% end %>
+      <% end %>
+      </li>
+    <%= f.submit t(".submit") %>
+  <% end %>
+</ol>
