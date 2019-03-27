@@ -3,6 +3,7 @@ class LessonsController < ApplicationController
   before_action :find_lesson
 
   def show
+    @choices = @lesson.choices.includes(word: [:answers])
   end
 
   def create
