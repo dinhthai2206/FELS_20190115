@@ -1,5 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :word, inverse_of: :answers
+  has_many :choices
 
   validates :content, presence: true
   validates :correct, presence: true

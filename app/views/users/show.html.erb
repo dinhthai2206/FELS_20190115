@@ -30,7 +30,13 @@
       <tr>
         <td><%= lesson.category.title %></td>
         <td><%= l(lesson.created_at, format: :day) %></td>
-        <td><%= lesson.status %></td>
+        <td>
+          <% if lesson.status == "not_answer" %>
+            <%= link_to t(".answer"), edit_lesson_path(lesson) %>
+          <% elsif lesson.status == "answered" %>
+            <%= link_to t(".review"), lesson_path(lesson) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
