@@ -31,17 +31,17 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= lesson.category.title %></td>
+        <td><%= lesson.full_title %></td>
         <td><%= l(lesson.created_at, format: :day) %></td>
         <td><%= t(".right_choices", count: lesson.right_choices.size) %></td>
         <td>
-          <% if lesson.status == 0 %>
+          <% if lesson.not_answer? %>
             <% if @user == current_user %>
               <%= link_to t(".answer"), edit_lesson_path(lesson) %>
             <% else %>
               <%= t ".not_answer" %>
             <% end %>
-          <% elsif lesson.status == 1 %>
+          <% elsif lesson.answered? %>
             <%= link_to t(".view"), lesson_path(lesson) %>
           <% end %>
         </td>

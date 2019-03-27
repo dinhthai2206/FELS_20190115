@@ -1,0 +1,6 @@
+<%= t ".answer"%>
+<% if activity.trackable %>
+  <%= link_to activity.trackable.full_title, activity.trackable %>
+<% else %>
+  <%= t ".remove" %>
+<% end %>

@@ -1,0 +1,6 @@
+<%= t ".create" %>
+<% if activity.trackable %>
+  <%= activity.trackable.full_title %>
+<% else %>
+  <%= t ".remove" %>
+<% end %>
