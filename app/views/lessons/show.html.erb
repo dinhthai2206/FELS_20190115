@@ -1,1 +1,28 @@
-<%= @lesson.right_choices.size %>/20
+<% provide :title, t(".review") %>
+
+<h2><%= @lesson.category.title %></h2>
+<h3><%= t(".result", count: @lesson.right_choices.size)%></h3>
+<%= link_to t(".back"), user_path(@lesson.user) %><br>
+
+<div>
+  <ol>
+    <% @choices.each do |choice| %>
+      <li>
+        <h3><%= choice.word.content %></h3>
+        <ul>
+          <% choice.word.answers.each do |answer| %>
+            <li>
+              <% if answer.id == choice.answer_id && answer.correct == "right" %>
+                <span class="text-info"><%= answer.content %></span><i class="fa fa-check fa-2x"></i>
+              <% elsif answer.id == choice.answer_id && answer.correct == "wrong" %>
+                <span class="text-danger"><%= answer.content %></span><i class="fa fa-times fa-2x"></i>
+              <% else %>
+                <%= answer.content %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+</div>

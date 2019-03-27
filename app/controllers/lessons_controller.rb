@@ -3,6 +3,7 @@ class LessonsController < ApplicationController
   before_action :find_lesson
 
   def show
+    @choices = @lesson.choices.includes(word: [:answers])
   end
 
   def create
@@ -32,6 +33,6 @@ class LessonsController < ApplicationController
   end
 
   def find_lesson
-    @lesson = Lesson.find_by id: params[:id]
+    @lesson = Lesson.find_by(id: params[:id])
   end
 end
