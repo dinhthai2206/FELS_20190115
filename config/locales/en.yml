@@ -42,24 +42,29 @@ en:
     edit:
       back: Back to profile
       submit: Submit
+    show:
+      review: Review lesson
+      result: "Result: %{count} / 20"
+      back: Back to user
       
   users:
     show:
       lessons: Lessons (%{count})
       lesson: Lesson
       created_at: Created at
-      status: Status
-      answer: Answer lesson
-      review: Review
+      action: Action
+      answer: Answer
+      view: View
+      result: Result
+      right_choices: "%{count}/20"
+      not_answer: Haven't answered
     index:
       users: Users
-
-  time:
-    formats:
-      day: "%d %B , %Y"
-
-  users:
     follow:
       follow: Follow
     unfollow:
       unfollow: Unfollow
+
+  time:
+    formats:
+      day: "%d %B , %Y"
