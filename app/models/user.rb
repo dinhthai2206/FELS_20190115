@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :choices
+  has_many :learned_words, ->{where(choices: {is_correct_answer: :right})},
+    through: :choices, source: :word
   has_many :answers, through: :choices
 
   validates :name, presence: true

@@ -1,17 +1,16 @@
 <% provide :title, t(".word_list") %>
 <h1><%= t ".word_list" %></h1>
+<% if current_user.has_role? :admin %>
   <%= link_to t(".new_word"), new_word_path, class: "btn btn-success" %>
+<% end %>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col"><%= t ".word" %></th>
+      <th scope="col"><%= sortable "content", t(".word") %></th>
       <th scope="col"><%= t ".meaning" %></th>
-      <th scope="col"><%= t ".category" %></th>
-      <th scope="col"><%= t ".status" %></th>
-      <th scope="col">
-        <%= t(".action") if current_user.has_role? :admin %>
-      </th>
+      <th scope="col"><%= sortable "categories.title", t(".category") %></th>
+      <th scope="col"><%= t ".learned" %></th>
     </tr>
   </thead>
 
@@ -21,9 +20,10 @@
         <td><%= word.content %></td>
         <td><%= word.right_answer.content if word.right_answer.present? %></td>
         <td><%= word.category.title %></td>
-        <td></td>
         <td>
-          <%= link_to t(".edit"), edit_word_path(word) if current_user.has_role? :admin %>
+          <% if @learned_word_ids.include?(word.id) %>
+            <i class="fa fa-check-circle green"></i>
+          <% end %>
         </td>
       </tr>
     <% end %>

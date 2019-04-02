@@ -25,6 +25,7 @@ en:
       category: CATEGORY
       status: STATUS
       action: EDIT
+      learned: LEARNED
 
     new:
       create: Create new word
