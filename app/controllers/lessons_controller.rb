@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
   def create
     @lesson = current_user.lessons.build lesson_params
     if @lesson.save
-      flash[:success] = t ".success"      
+      flash[:success] = t ".success"
     else
       flash[:danger] = t ".failed"
     end

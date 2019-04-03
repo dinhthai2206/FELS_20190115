@@ -1,6 +1,6 @@
-<% provide :title, t(".review") %>
+<% provide :title, @lesson.full_title %>
 
-<h2><%= @lesson.category.title %></h2>
+<h2><%= @lesson.full_title %></h2>
 <h3><%= t(".result", count: @lesson.right_choices.size)%></h3>
 <%= link_to t(".back"), user_path(@lesson.user) %><br>
 
@@ -12,9 +12,9 @@
         <ul>
           <% choice.word.answers.each do |answer| %>
             <li>
-              <% if answer.id == choice.answer_id && answer.correct == 1 %>
+              <% if answer.id == choice.answer_id && answer.right? %>
                 <span class="text-info"><%= answer.content %></span><i class="fa fa-check fa-2x"></i>
-              <% elsif answer.id == choice.answer_id && answer.correct == 0 %>
+              <% elsif answer.id == choice.answer_id && answer.wrong? %>
                 <span class="text-danger"><%= answer.content %></span><i class="fa fa-times fa-2x"></i>
               <% else %>
                 <%= answer.content %>

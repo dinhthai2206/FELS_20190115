@@ -1,4 +1,6 @@
 class Lesson < ApplicationRecord
+  include PublicActivity::Common
+
   belongs_to :user
   belongs_to :category
   has_many :lesson_words
@@ -12,12 +14,18 @@ class Lesson < ApplicationRecord
   validates :category_id, presence: true
   validates :status, presence: true
 
+  delegate :title, to: :category
+
   enum status: {not_answer: 0, answered: 1}
 
-  after_create :add_words_and_choices
-  after_update :change_status
+  after_create :add_words_and_choices, :activity_create
+  after_update :change_status, :activity_update
 
   scope :order_created_desc,->{order created_at: :desc}
+
+  def full_title
+    title + " " + id.to_s
+  end
 
   private
   def add_words_and_choices
@@ -33,6 +41,12 @@ class Lesson < ApplicationRecord
     choices.each do |choice|
       return unless choice.answer.present?
       choice.update_attributes(is_correct_answer: choice.answer.correct)
+    end
+  end
+
+  %w[create update].each do |action|
+    define_method("activity_#{action}") do
+      create_activity action, owner: user
     end
   end
 end

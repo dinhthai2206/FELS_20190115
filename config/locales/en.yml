@@ -9,6 +9,7 @@ en:
       settings: Settings
       log_out: Log out
       log_in: Log in
+      activities: Activities
 
   static_pages:
     home:
@@ -68,3 +69,16 @@ en:
   time:
     formats:
       day: "%d %B , %Y"
+  
+  public_activity:
+    lesson:
+      create:
+        create: created lesson
+        remove: which has since been removed
+      update:
+        answer: answered lesson
+        remove: which has since been removed
+
+  activities:
+    index:
+      activities: Activities
