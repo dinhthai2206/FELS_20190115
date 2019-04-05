@@ -97,3 +97,18 @@ en:
   activities:
     index:
       activities: Activities
+
+  devise:
+    sessions:
+      new:
+        login: Log in
+        social: Or sign in with
+    registrations:
+      edit:
+        edit: Edit profile
+        current_waiting: "Currently waiting confirmation for:"
+        leave_blank: (leave blank if you don't want to change it)
+        current_password: (we need your current password to confirm your changes)
+        characters_minimum: "%{minimum_password_length} characters minimum"
+        ask: Don't wanna use this app anymore?
+        cancel: Delete my account

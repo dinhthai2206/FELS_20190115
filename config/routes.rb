@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   root "static_pages#home"
-  devise_for :users, controllers: {registrations: "registrations"}, skip: [:sessions]
+  devise_for :users, controllers: {registrations: "registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions]
   as :user do
     get "login", to: "devise/sessions#new", as: :new_user_session
     post "login", to: "devise/sessions#create", as: :user_session
