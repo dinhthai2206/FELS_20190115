@@ -1,5 +1,6 @@
 <% provide :title, t(".word_list") %>
-<h1>Word list</h1>
+<h1><%= t ".word_list" %></h1>
+  <%= link_to t(".new_word"), new_word_path, class: "btn btn-success" %>
 
 <table class="table table-striped">
   <thead>
@@ -8,6 +9,9 @@
       <th scope="col"><%= t ".meaning" %></th>
       <th scope="col"><%= t ".category" %></th>
       <th scope="col"><%= t ".status" %></th>
+      <th scope="col">
+        <%= t(".action") if current_user.has_role? :admin %>
+      </th>
     </tr>
   </thead>
 
@@ -15,8 +19,12 @@
     <% @words.each do |word| %>
       <tr>
         <td><%= word.content %></td>
-        <td><%= word.right_answer.content %></td>
+        <td><%= word.right_answer.content if word.right_answer.present? %></td>
         <td><%= word.category.title %></td>
+        <td></td>
+        <td>
+          <%= link_to t(".edit"), edit_word_path(word) if current_user.has_role? :admin %>
+        </td>
       </tr>
     <% end %>
   </tbody>

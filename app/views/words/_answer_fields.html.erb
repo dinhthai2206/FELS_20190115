@@ -1,0 +1,12 @@
+<fieldset>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_field :content, placeholder: t(".insert_answer") %>
+  </div>
+  <div class="field">
+    <%= f.label :correct %>
+    <%= f.collection_radio_buttons :correct, Answer.corrects.map{|key, value| [t(".#{key}"), key]}, :last, :first %>
+  </div>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to t(".remove"), '#', class: "remove_fields" %>
+</fieldset>

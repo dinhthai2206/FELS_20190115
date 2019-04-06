@@ -20,10 +20,24 @@ en:
   words:
     index:
       word_list: WORD LIST
-      word: Word
-      meaning: Meaning
-      category: Category
-      status: Status
+      word: WORD
+      meaning: MEANING
+      category: CATEGORY
+      status: STATUS
+      action: EDIT
+
+    new:
+      create: Create new word
+    form:
+      choose: Choose a category
+      insert: Insert here...
+      add: Add an answer
+      answers: Answers
+    answer_fields:
+      insert_answer: Insert content...
+      remove: Remove answer
+    edit:
+      edit: Edit word
 
   categories:
     index:

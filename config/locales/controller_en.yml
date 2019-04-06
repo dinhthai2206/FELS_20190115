@@ -9,3 +9,11 @@ en:
 
   following:
     following: Following
+
+  words:
+    create:
+      success: Word created!
+      fail: Creating word failed!
+    update:
+      success: Word updated!
+      fail: Updating word failed!
