@@ -1,0 +1,22 @@
+<%= form_for @word do |f| %>
+  <div class="field">
+    <%= f.label :categogy, t(".choose") %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :title), class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_field :content, placeholder: t(".insert"), class: "form-control" %>
+  </div>
+  <h3><%= t ".answers" %></h3>
+    <div class="field">
+      <%= f.fields_for :answers do |answer| %>
+        <%= render "answer_fields", f: answer %>
+      <% end %>
+      <div>
+        <%= link_to_add_fields t(".add"), f, :answers %>
+      </div>
+    </div>
+  <div class="field">
+    <%= f.submit %>
+  </div>
+<% end %>
