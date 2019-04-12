@@ -6,7 +6,7 @@ class Lesson < ApplicationRecord
   has_many :lesson_words
   has_many :words, through: :lesson_words
   has_many :choices
-  has_many :right_choices, ->{where(is_correct_answer: "right")}, class_name: "Choice"
+  has_many :right_choices, ->{where(is_correct_answer: :right)}, class_name: "Choice"
 
   accepts_nested_attributes_for :choices, allow_destroy: true
 
@@ -39,8 +39,9 @@ class Lesson < ApplicationRecord
 
   def change_status
     choices.each do |choice|
-      return unless choice.answer.present?
-      choice.update_attributes(is_correct_answer: choice.answer.correct)
+      if choice.answer.present?
+        choice.update_attributes(is_correct_answer: choice.answer.correct)
+      end
     end
   end
 

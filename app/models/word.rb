@@ -2,7 +2,7 @@ class Word < ApplicationRecord
   belongs_to :category
   has_many :lesson_words
   has_many :answers, inverse_of: :word, dependent: :destroy
-  has_one :right_answer, ->{where(correct: "right")}, class_name: "Answer"
+  has_one :right_answer, ->{where(correct: :right)}, class_name: "Answer"
   has_many :choices
 
   validates :content, presence: true

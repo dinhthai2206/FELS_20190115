@@ -1,9 +1,12 @@
 class WordsController < ApplicationController
   load_and_authorize_resource
   before_action :find_word
+  include WordsHelper
 
   def index
-    @pagy, @words = pagy Word.all_words, items: 30
+    @pagy, @words = pagy Word.all_words.
+      order(sort_column.to_s + " " + sort_direction), items: 30
+    @learned_word_ids = current_user.learned_words.pluck(:id)
   end
 
   def new
@@ -13,10 +16,10 @@ class WordsController < ApplicationController
   def create
     @word = Word.new word_params
     if @word.save
-      flash[:success] = t '.success'
+      flash[:success] = t ".success"
       redirect_to words_path
     else
-      flash[:danger] = t '.fail'
+      flash[:danger] = t ".fail"
       render :new
     end
   end
@@ -26,10 +29,10 @@ class WordsController < ApplicationController
 
   def update
     if @word.update_attributes word_params
-      flash[:success] = t '.success'
+      flash[:success] = t ".success"
       redirect_to words_path
     else
-      flash[:danger] = t '.fail'
+      flash[:danger] = t ".fail"
       render :edit
     end
   end
