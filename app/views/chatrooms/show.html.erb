@@ -1,0 +1,15 @@
+<% provide :title, @chatroom.topic %>
+
+<div class="col-sm-1">
+</div>
+<div class="col-sm-10">
+  <h3><strong><%= t ".topic" %></strong> <%= @chatroom.topic %></h3>
+  <div><%= link_to t(".back"), chatrooms_path %></div>
+
+  <div data-behavior="messages" id="messages_list">
+    <%= render @messages %>
+  </div>
+  <div>
+    <%= render "messages/form", chatroom: @chatroom, message: Message.new %>
+  </div>
+</div>

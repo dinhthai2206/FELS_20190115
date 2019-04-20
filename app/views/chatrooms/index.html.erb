@@ -1,0 +1,44 @@
+<% provide :title, t(".chatrooms") %>
+
+<div class="col-sm-1">
+</div>
+<div class="col-sm-11">
+  <h1><%= t ".chatrooms" %></h1>
+
+  <div><%= render "form", chatroom: @chatroom %></div></br>
+  <div class="row">
+    <div class="col-md-4">
+      <ul><h4><%= t ".joined" %></h4>
+        <% current_user.joined_rooms.each do |joined_room| %>
+          <li><%= link_to joined_room.topic, joined_room %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><%= t ".chatrooms" %></th>
+            <th scope="col"><%= t ".join" %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @chatrooms.each do |chatroom| %>
+            <tr>
+              <td><%= chatroom.topic %></td>
+              <td>
+                <% if @joined_room_ids.include?(chatroom.id) %>
+                  <%= link_to t(".leave"), chatroom_chatroom_users_path(chatroom), method: :delete %>
+                <% else %>
+                  <%= link_to t(".join"), chatroom_chatroom_users_path(chatroom), method: :post %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

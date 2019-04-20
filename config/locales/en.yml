@@ -112,3 +112,19 @@ en:
         characters_minimum: "%{minimum_password_length} characters minimum"
         ask: Don't wanna use this app anymore?
         cancel: Delete my account
+    
+  chatrooms:
+    form:
+      submit: Submit
+    edit:
+      edit: Edit chatroom
+      show: Show
+      back: Back
+    index:
+      chatrooms: Chatrooms
+      joined: "You have joined:"
+      join: Join
+      leave: Leave
+    show:
+      topic: "Topic:"
+      back: Back to chatrooms

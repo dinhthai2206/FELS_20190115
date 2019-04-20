@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :lessons
   resources :relationships, only: [:create, :destroy]
   resources :activities, only: :index
+  resources :chatrooms do
+    resource :chatroom_users
+    resources :messages
+  end
 end
