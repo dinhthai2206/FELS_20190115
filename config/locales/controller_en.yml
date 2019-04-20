@@ -17,3 +17,13 @@ en:
     update:
       success: Word updated!
       fail: Updating word failed!
+
+  chatrooms:
+    create:
+      suceess: You created a chatroom!
+      failed: Creating new chatroom failed!
+    update: 
+      suceess: Chatroom info updated!
+      failed: Updating chatroom failed!
+    destroy:
+      success: Chatroom deleted!

@@ -18,6 +18,9 @@ class User < ApplicationRecord
   has_many :learned_words, ->{where(choices: {is_correct_answer: :right})},
     through: :choices, source: :word
   has_many :answers, through: :choices
+  has_many :chatroom_users
+  has_many :joined_rooms, through: :chatroom_users, source: :chatroom
+  has_many :messages
 
   validates :name, presence: true
 
