@@ -6,7 +6,7 @@
   <h3><strong><%= t ".topic" %></strong> <%= @chatroom.topic %></h3>
   <div><%= link_to t(".back"), chatrooms_path %></div>
 
-  <div data-behavior="messages" id="messages_list">
+  <div data-behavior="messages" data-chatroom-id="<%= @chatroom.id %>" id="messages_list">
     <%= render @messages %>
   </div>
   <div>

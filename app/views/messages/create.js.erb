@@ -1,4 +1,0 @@
-$("#new_message")[0].reset();
-<% if @create_success == true %>
-  $("#messages_list").append("<%= escape_javascript(render("messages/message", message: @message)) %>");
-<% end %>
