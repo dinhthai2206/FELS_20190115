@@ -10,7 +10,7 @@
     <div class="col-md-4">
       <ul><h4><%= t ".joined" %></h4>
         <% current_user.joined_rooms.each do |joined_room| %>
-          <li><%= link_to joined_room.topic, joined_room %></li>
+          <li><%= link_to joined_room.topic, joined_room, data: {behavior: "chatroom-link", chatroom_id: joined_room.id } %></li>
         <% end %>
       </ul>
     </div>

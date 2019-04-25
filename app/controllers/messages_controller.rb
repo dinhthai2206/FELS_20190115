@@ -4,10 +4,8 @@ class MessagesController < ApplicationController
   def create
     @message = @chatroom.messages.new message_params
     @message.user = current_user
-    @create_success = true if @message.save
-    respond_to do |format| 
-      format.js
-    end
+    @message.save
+    MessageRelayJob.perform_later(@message)
   end
 
   private
