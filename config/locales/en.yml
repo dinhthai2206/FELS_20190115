@@ -129,3 +129,8 @@ en:
     show:
       topic: "Topic:"
       back: Back to chatrooms
+
+  searches:
+    form:
+      placeholder: Search words...
+      search: Search

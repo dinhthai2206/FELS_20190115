@@ -1,8 +1,12 @@
 <% provide :title, t(".word_list") %>
 <h1><%= t ".word_list" %></h1>
-<% if current_user.has_role? :admin %>
-  <%= link_to t(".new_word"), new_word_path, class: "btn btn-success" %>
-<% end %>
+<div>
+  <% if current_user.has_role? :admin %>
+    <%= link_to t(".new_word"), new_word_path, class: "btn btn-success" %>
+  <% end %>
+</div><br>
+
+<div class="form-inline col-xs-2"><%= render "searches/form" %></div>
 
 <table class="table table-striped">
   <thead>

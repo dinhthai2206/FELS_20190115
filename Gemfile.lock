@@ -87,6 +87,19 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    elasticsearch (7.0.0)
+      elasticsearch-api (= 7.0.0)
+      elasticsearch-transport (= 7.0.0)
+    elasticsearch-api (7.0.0)
+      multi_json
+    elasticsearch-model (6.0.0)
+      activesupport (> 3)
+      elasticsearch (> 1)
+      hashie
+    elasticsearch-rails (6.0.0)
+    elasticsearch-transport (7.0.0)
+      faraday
+      multi_json
     erubi (1.8.0)
     execjs (2.7.0)
     faker (1.9.3)
@@ -302,6 +315,8 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  elasticsearch-model
+  elasticsearch-rails
   faker
   figaro
   font-awesome-sass (= 4.7.0)
