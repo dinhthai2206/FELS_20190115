@@ -134,3 +134,14 @@ en:
     form:
       placeholder: Search words...
       search: Search
+
+  user_mailer:
+    create_lesson:
+      hi: Hi, you created a lesson.
+      do_it: You can do it
+      here: here
+    complete_lesson:
+      completed: You completed a lesson.
+      result: Your result is %{count}/20.
+      review: You can review it
+      here: here
