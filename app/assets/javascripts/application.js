@@ -16,6 +16,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+//= require ./vuejs/app
 
 $(document).on('click', 'form .remove_fields', function(event) {
     $(this).prev('input[type=hidden]').val('1');

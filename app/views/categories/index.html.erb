@@ -1,22 +1,20 @@
 <% provide :title, t(".categories") %>
-<h1><%= t ".categories" %></h1>
+<div id="categories-index">
+  <h1><%= t ".categories" %></h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col"><%= t ".category" %></th>
-      <th scope="col"><%= t ".words" %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= link_to category.title, category %></td>
-        <td><%= category.words.size %></td>
+        <th scope="col"><%= t ".category" %></th>
+        <th scope="col"><%= t ".words" %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<%== pagy_bootstrap_nav @pagy %>
+    <tbody>
+      <tr v-for="category in categories" :key="category.id">
+        <td><a :href="'/categories/' + category.id">{{ category.title }}</a></td>
+        <td>{{ category.words_count }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

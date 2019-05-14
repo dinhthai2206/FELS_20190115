@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :following, :followers, only: :index
   end
   resources :words
-  resources :categories
+  resources :categories, only: [:index, :show]
   resources :lessons
   resources :relationships, only: [:create, :destroy]
   resources :activities, only: :index
@@ -25,4 +25,8 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :searches
+
+  namespace :api do
+    resources :categories, only: [:index, :show]
+  end
 end
