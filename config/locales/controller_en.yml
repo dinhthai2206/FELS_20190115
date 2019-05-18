@@ -27,3 +27,9 @@ en:
       failed: Updating chatroom failed!
     destroy:
       success: Chatroom deleted!
+
+  user_mailer:
+    create_lesson:
+      create: You created a lesson.
+    complete_lesson:
+      complete: You have completed a lesson.

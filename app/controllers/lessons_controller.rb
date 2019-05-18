@@ -8,7 +8,9 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = current_user.lessons.build lesson_params
+
     if @lesson.save
+      UserMailer.create_lesson(current_user, @lesson).deliver_later
       flash[:success] = t ".success"
     else
       flash[:danger] = t ".failed"
@@ -22,6 +24,7 @@ class LessonsController < ApplicationController
   def update
     @lesson.status = "answered"
     @lesson.update_attributes(lesson_params)
+    UserMailer.complete_lesson(current_user, @lesson).deliver_later
     redirect_to @lesson
   end
 

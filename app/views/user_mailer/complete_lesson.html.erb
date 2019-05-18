@@ -1,0 +1,3 @@
+<p><%= t ".completed" %></p>
+<p><%= t ".result", count: @lesson.right_choices.count %></p>
+<p><%= t ".review" %> <%= link_to t(".here"), lesson_url(@lesson) %></p>
